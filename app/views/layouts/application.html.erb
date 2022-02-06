@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BOokRain</title>
+    <title>B(ook)rain</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,17 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div id="wrapper">
+      <%= render "layouts/header"%>
+      <main>
+        <div class="container">
+          <div id="flash">
+            <%= render "layouts/flash" %>
+          </div>
+          <%= yield %>
+        </div>
+      </main>
+      <%= render "layouts/footer"%>
+    </div>
   </body>
 </html>
