@@ -27,6 +27,14 @@
           </li>
         <% end %>
       </ul>
+      <div id="nav-search">
+        <%= form_tag root_path, :method => 'get' do %>
+          <p>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "検索", :name => nil %>
+          </p>
+        <% end %>
       </div>
+    </div>
   </nav>
 </header>

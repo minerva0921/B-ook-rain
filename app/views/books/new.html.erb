@@ -1,8 +1,46 @@
-<h1>New book</h1>
-<%= form_for(book) do |f| %>
-  <h4>Title</h4>
-  <%= f.text_field :title, class: "col-xs-12" %>
-  <h4>Opinion</h4>
-  <%= f.text_area :body, class: "col-xs-12 new-col" %><br>
-  <%= f.submit "Create Book", class: "btn btn-primary btn-block" %>
-<% end %>
+<div class="container">
+  <div class="row row-new">
+    <h3>メモ登録</h3>
+    <div class="col-xs-4">
+      <!-- メモ登録フォーム -->
+      <%= form_with model: @book, url: books_path, local: true do |f| %>
+      　<!-- サムネ選択欄 -->
+        <div class="book-image">
+          <%#= attachment_image_tag @book, :image, class: "img-square", fallback: "no_image.jpg", size:"200x200" %>
+          <%#= f.attachment_field :image, placeholder: "サムネイル" %>
+　      </div>
+        <div class="col-xs-8">
+          <div class="new-field">
+            <th><%= f.label :タイトル %></th>
+            <td><%= f.text_field :title, placeholder:"タイトル" %></td>
+          </div>
+          <div class="new-field">
+            <th><%= f.label :巻数 %></th>
+            <td><%= f.text_field :turn, placeholder:"巻数" %></td>
+          </div>
+          <div class="new-field">
+            <th><%= f.label :ページ数 %></th>
+            <td><%= f.text_field :page, placeholder:"ページ数" %></td>
+          </div>
+          <div class="new-field">
+            <th><%= f.label :ジャンル %></th>
+            <td><%= f.text_field :genre, placeholder:"ジャンル（任意）" %></td>
+          </div>
+          <div class="new-field">
+            <th><%= f.label :通読状況 %></th>
+            <td><%= f.text_field :read_situation, placeholder:"未読" %></td>
+          </div>
+          <div class="new-field">
+            <th><%= f.label :最後に読んだ日 %></th>
+            <td><%= f.text_field :last_day, placeholder:"2022年1月1日" %></td>
+          </div>
+          <div class="new-field">
+            <th><%= f.label :内容 %></th>
+            <td><%= f.text_area :content, size: "50x5", placeholder:"直前の内容等を記載" %></td>
+          </div>
+          <div class="text-right"><%= f.submit "メモ登録" ,class: "btn btn-primary" %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

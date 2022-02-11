@@ -1,2 +1,65 @@
-<h1>Books#edit</h1>
-<p>Find me in app/views/books/edit.html.erb</p>
+<div class="container">
+  <h2 class="text-center my-5">メモ編集</h2>
+  <div class="row">
+    <div class="col-8 offset-2 mb-5">
+      <%= form_with model: @book, url: book_path, local: true do |f| %>
+      <table>
+        <tr>
+          <div class="form-group">
+            <%= f.label :サムネイル, class:"form_label"%>
+            <%= f.attachment_field :image,class:"mb-3 ml-3"%>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-group">
+            <%= f.label :タイトル, class:"form_label" %>
+            <%= f.text_field :title, placeholder:"タイトル",class:"form-control mb-3" %>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-group">
+            <%= f.label :巻数, class:"form_label" %>
+            <%= f.text_field :turn, placeholder:"巻数",class:"form-control mb-3" %>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-group">
+            <%= f.label :ページ数, class:"form_label" %>
+            <%= f.text_field :page, placeholder:"ページ数",class:"form-control mb-3" %>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-group">
+            <%= f.label :ジャンル, class:"form_label" %>
+            <%= f.text_field :genre, placeholder:"ジャンル（任意）",class:"form-control mb-3" %>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-group">
+            <%= f.label :通読状況, class:"form_label" %>
+            <%= f.text_field :read_situation, placeholder:"未読",class:"form-control mb-3" %>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-group">
+            <%= f.label :最後に読んだ日, class:"form_label" %>
+            <%= f.text_field :last_day, placeholder:"2022年1月1日",class:"form-control mb-3" %>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-group">
+            <%= f.label :内容, class:"form_label" %>
+            <%= f.text_area :content, size: "50x5", placeholder:"直前の内容等を記載",class:"form-control form-control-lg mb-3" %>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-action d-flex justify-content-around">
+            <%= f.submit "変更を保存", class:"btn btn-success" %>
+            <%= link_to "メモ詳細へ戻る",books_path, class:"btn btn-outline-secondary" %>
+          </div>
+        </tr>
+      <% end %>
+      </table>
+    </div>
+  </div>
+</div>
