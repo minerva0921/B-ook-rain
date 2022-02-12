@@ -1,65 +1,49 @@
 class BooksController < ApplicationController
   def new
-    
-  end
-  
-  def index
-    @books = Book.all
     @book = Book.new
-    @user = User.find(current_user.id)
   end
-  
+
+  def index
+    #@book = Book.new
+    @books = Book.all
+  end
+
   def create
     @book = Book.new(book_params)
-    @book.user_id = current_user.id
     if @book.save
-       redirect_to book_path(@book.id)
+      redirect_to book_path(@book.id)
     else
-       @user = current_user
-       @books = Book.all
-       render :index
+      render :index
     end
   end
-  
+
   def update
-    @book = Book.find(params[:id])
-    if @book.user_id != current_user.id
-      redirect_to books_path
+    book = Book.find(params[:id])
+    if book.update(book_params)
+      redirect_to book_path(book.id)
     else
-      if @book.update(book_params)
-        redirect_to book_path(@book.id)
-      else
-        render :edit
-      end
+      render :index
     end
   end
 
   def show
     @book = Book.find(params[:id])
-    @user = @book.user
   end
 
   def edit
     @book = Book.find(params[:id])
-    if @book.user_id != current_user.id
-      redirect_to books_path
-    end
   end
 
   def destroy
-    @book = Book.find(params[:id])
-    if @book.user_id != current_user.id
-      redirect_to books_path
-    else
-      @book.destroy
-      redirect_to books_path
-    end
+    book = Book.find(params[:id])  # データ（レコード）を1件取得
+    book.destroy  # データ（レコード）を削除
+    redirect_to books_path  # 投稿一覧画面へリダイレクト
   end
-  
+
   private
-  
+
   def book_params
-    params.require(:book).permit(:title, :body)
+    params.require(:book).permit(:title, :turn, :page, :genre, :read_situation, :last_day, :content)
   end
-  
+
 end

@@ -38,7 +38,12 @@
             <th><%= f.label :内容 %></th>
             <td><%= f.text_area :content, size: "50x5", placeholder:"直前の内容等を記載" %></td>
           </div>
-          <div class="text-right"><%= f.submit "メモ登録" ,class: "btn btn-primary" %></div>
+          <div class="text-right">
+            <%= f.submit "メモ登録" ,class: "btn btn-primary" %>
+          </div>
+          <div class="text-right">
+            <%= link_to "メモ一覧へ戻る", books_path, class:"btn btn-outline-secondary"%>
+          </div>
         </div>
       <% end %>
     </div>

@@ -16,11 +16,12 @@
         </tr>
         <tr>
           <th>最近のお気に入り</th>
+          <td><%= @user.email %></td>
         </tr>
       </table>
       <div class="d-flex justify-content-around">
-        <p><%= link_to '編集する', edit_users_path(@user.id), class:"btn btn-success" %></p>
-        <p><%= link_to "メモ一覧へ", books_path, class:"btn btn-outline-secondary"%></p>
+        <p><%= link_to "編集する", edit_users_path(@user.id), class:"btn btn-success" %></p>
+        <p><%= link_to "メモ一覧へ", books_path, class:"btn btn-outline-secondary" %></p>
       </div>
     </div>
   </div>

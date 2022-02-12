@@ -6,8 +6,8 @@
       <table>
         <tr>
           <div class="form-group">
-            <%= f.label :サムネイル, class:"form_label"%>
-            <%= f.attachment_field :image,class:"mb-3 ml-3"%>
+            <%#= f.label :サムネイル, class:"form_label"%>
+            <%#= f.attachment_field :image,class:"mb-3 ml-3"%>
           </div>
         </tr>
         <tr>
@@ -55,7 +55,7 @@
         <tr>
           <div class="form-action d-flex justify-content-around">
             <%= f.submit "変更を保存", class:"btn btn-success" %>
-            <%= link_to "メモ詳細へ戻る",books_path, class:"btn btn-outline-secondary" %>
+            <%= link_to "メモ詳細へ戻る",book_path, class:"btn btn-outline-secondary" %>
           </div>
         </tr>
       <% end %>

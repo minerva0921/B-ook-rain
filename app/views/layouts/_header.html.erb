@@ -31,7 +31,7 @@
         <%= form_tag root_path, :method => 'get' do %>
           <p>
             <%= text_field_tag :search, params[:search] %>
-            <%= submit_tag "検索", :name => nil %>
+            <%= submit_tag "検索", :title => nil %>
           </p>
         <% end %>
       </div>
