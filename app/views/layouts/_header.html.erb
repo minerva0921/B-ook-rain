@@ -4,6 +4,14 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+      <div id="nav-search">
+        <%= form_tag books_path, :method => 'get' do %>
+          <p>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "検索", :title => nil %>
+          </p>
+        <% end %>
+      </div>
       <ul class="navbar-nav">
         <% if user_signed_in? %>
           <li class="nav-item">
@@ -27,14 +35,6 @@
           </li>
         <% end %>
       </ul>
-      <div id="nav-search">
-        <%= form_tag root_path, :method => 'get' do %>
-          <p>
-            <%= text_field_tag :search, params[:search] %>
-            <%= submit_tag "検索", :title => nil %>
-          </p>
-        <% end %>
-      </div>
     </div>
   </nav>
 </header>

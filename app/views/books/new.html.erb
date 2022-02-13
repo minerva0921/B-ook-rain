@@ -6,8 +6,8 @@
       <%= form_with model: @book, url: books_path, local: true do |f| %>
       　<!-- サムネ選択欄 -->
         <div class="book-image">
-          <%#= attachment_image_tag @book, :image, class: "img-square", fallback: "no_image.jpg", size:"200x200" %>
-          <%#= f.attachment_field :image, placeholder: "サムネイル" %>
+          <%= attachment_image_tag @book, :image, class: "img-square", fallback: "no_image.jpg", size:"200x300" %>
+          <%= f.attachment_field :image, placeholder: "サムネイル" %>
 　      </div>
         <div class="col-xs-8">
           <div class="new-field">

@@ -4,8 +4,8 @@ class BooksController < ApplicationController
   end
 
   def index
-    #@book = Book.new
     @books = Book.all
+    @books = Book.all.search(params[:search])
   end
 
   def create
@@ -43,7 +43,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :turn, :page, :genre, :read_situation, :last_day, :content)
+    params.require(:book).permit(:image, :title, :turn, :page, :genre, :read_situation, :last_day, :content)
   end
 
 end
