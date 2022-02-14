@@ -1,5 +1,5 @@
 <div class="container">
-  <h2 class="mt-5 text-center">>B(ook)rain</h2>
+  <h2 class="mt-5 text-center">B(ook)rain</h2>
   <div class="row align-items-center m-5">
     <div class="col-lg text-center mb-5">
       <%= attachment_image_tag @user, :image, :size => '200x200'%>
@@ -16,7 +16,7 @@
         </tr>
         <tr>
           <th>最近のお気に入り</th>
-          <td><%= @user.email %></td>
+          <td><%= @user.favorite %></td>
         </tr>
       </table>
       <div class="d-flex justify-content-around">
