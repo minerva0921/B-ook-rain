@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      flash[:notice] = "You have updated user successfully."
+      flash[:notice] = "ユーザー情報を更新しました。"
       redirect_to user_path(@user.id)
     else
       render :edit
@@ -24,6 +24,13 @@ class UsersController < ApplicationController
     if @user != current_user
       redirect_to user_path(current_user.id)
     end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:notice] = 'ユーザーを削除しました。'
+    redirect_to :root #削除に成功すればrootページに戻る
   end
 
   private

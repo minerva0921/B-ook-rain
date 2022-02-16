@@ -21,6 +21,7 @@
       </table>
       <div class="d-flex justify-content-around">
         <p><%= link_to "編集する", edit_users_path(@user.id), class:"btn btn-success" %></p>
+        <p><%= link_to "退会", users_path(@user.id), class:"btn btn-danger", method: :delete, "data-confirm" => "本当に退会しますか？" %></p>
         <p><%= link_to "メモ一覧へ", books_path, class:"btn btn-outline-secondary" %></p>
       </div>
     </div>

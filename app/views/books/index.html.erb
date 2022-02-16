@@ -27,7 +27,8 @@
     </thead>
   </table>
     <div class="col-sm-2 px-sm-0 text-right mt-5">
-      <%= link_to "メモ登録", new_book_path, class:"btn btn btn-outline-secondary" %>
+      <%= link_to new_book_path, class:"btn btn btn-outline-secondary" do %>
         <i class="fas fa-plus fa-2x "></i>
+      <% end %>
     </div>
 </div>
