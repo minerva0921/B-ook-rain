@@ -1,7 +1,7 @@
 class Book < ApplicationRecord
   belongs_to :user, optional: true
 
-  #validates :title, presence: true
+  validates :title, presence: true
   attachment :image
 
   def self.search(search)
