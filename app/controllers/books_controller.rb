@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!
+  
   def new
     @book = Book.new
   end
@@ -6,6 +8,7 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
     @books = Book.all.search(params[:search])
+    @user = User.find(current_user.id)
   end
 
   def create
